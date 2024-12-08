@@ -1,11 +1,11 @@
-#include "program_graf.h"
+#include "pamietnik.h"
 
 #include <QApplication>
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    program_graf w;
+    Pamietnik w;
     w.show();
     return a.exec();
 }

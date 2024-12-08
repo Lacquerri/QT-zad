@@ -73,13 +73,13 @@ void Pamietnik::on_dodajButton_clicked()
     wpis w(data1,text);
 
     if(std::count(listaWpisow.begin(), listaWpisow.end(), w)>0){
-    auto it = std::find(listaWpisow.begin(), listaWpisow.end(), w);
-    int index = std::distance(listaWpisow.begin(),it);
-    listaWpisow[index]=w;
+        auto it = std::find(listaWpisow.begin(), listaWpisow.end(), w);
+        int index = std::distance(listaWpisow.begin(),it);
+        listaWpisow[index]=w;
     }
 
     else{
-    this->listaWpisow.push_back(w);
+        this->listaWpisow.push_back(w);
     }
 
     aktualizuj();
