@@ -39,6 +39,9 @@ Pamietnik::Pamietnik(QWidget *parent)
 {
     ui->setupUi(this);
     ui->textEdit_2->setReadOnly(true);
+    ui->textEdit_3->setReadOnly(true);
+    ui->textEdit_4->setReadOnly(true);
+    aktualizuj();
 }
 
 Pamietnik::~Pamietnik()
@@ -53,15 +56,48 @@ bool cmp(wpis w1, wpis w2){
 void Pamietnik::aktualizuj()
 {
     ui->textEdit_2->setPlainText("");
+    ui->textEdit_3->setPlainText("");
+    ui->textEdit_4->setPlainText("");
     std::sort(listaWpisow.begin(),listaWpisow.end(),&cmp);
-    for(int i=0;i<listaWpisow.size();i++){
-        if(i>0)ui->textEdit_2->insertPlainText("--------------------------------------------------------------------\n");
-        QString strdata = listaWpisow[i].getData().toString();
-        QString tekst = listaWpisow[i].getTresc();
-        ui->textEdit_2->insertPlainText(strdata);
-        ui->textEdit_2->insertPlainText("\n");
-        ui->textEdit_2->insertPlainText(tekst);
-        ui->textEdit_2->insertPlainText("\n");
+    QString strdata;
+    QString tekst;
+    if(listaWpisow.size()==0){
+        ui->textEdit_2->setFontItalic(true);
+        ui->textEdit_2->setPlainText("Brak wspomnienia");
+    }
+    else{
+    ui->textEdit_2->setFontItalic(false);
+    strdata = listaWpisow[str].getData().toString();
+    tekst = listaWpisow[str].getTresc();
+    ui->textEdit_2->insertPlainText(strdata);
+    ui->textEdit_2->insertPlainText("\n");
+    ui->textEdit_2->insertPlainText(tekst);
+    }
+
+    if(str-1<0){
+        ui->textEdit_3->setFontItalic(true);
+        ui->textEdit_3->setPlainText("Brak wspomnienia");
+    }
+    else{
+         ui->textEdit_3->setFontItalic(false);
+        strdata = listaWpisow[str-1].getData().toString();
+        tekst = listaWpisow[str-1].getTresc();
+        ui->textEdit_3->insertPlainText(strdata);
+        ui->textEdit_3->insertPlainText("\n");
+        ui->textEdit_3->insertPlainText(tekst);
+    }
+
+    if(str+1>=listaWpisow.size()){
+        ui->textEdit_4->setFontItalic(true);
+        ui->textEdit_4->setPlainText("Brak wspomnienia");
+    }
+    else{
+        ui->textEdit_4->setFontItalic(false);
+        strdata = listaWpisow[str+1].getData().toString();
+        tekst = listaWpisow[str+1].getTresc();
+        ui->textEdit_4->insertPlainText(strdata);
+        ui->textEdit_4->insertPlainText("\n");
+        ui->textEdit_4->insertPlainText(tekst);
     }
 
 }
@@ -86,4 +122,22 @@ void Pamietnik::on_dodajButton_clicked()
     ui->textEdit->setPlainText("");
 }
 
+
+
+void Pamietnik::on_nextButton_clicked()
+{
+    if(str+1<listaWpisow.size()){
+        str++;
+        aktualizuj();
+    }
+}
+
+
+void Pamietnik::on_prevButton_clicked()
+{
+    if(str-1>=0){
+        str--;
+        aktualizuj();
+    }
+}
 
