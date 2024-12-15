@@ -39,9 +39,14 @@ public:
 private slots:
     void on_dodajButton_clicked();
 
+    void on_nextButton_clicked();
+
+    void on_prevButton_clicked();
+
 private:
     Ui::Pamietnik *ui;
     std::deque<wpis> listaWpisow;
+    int str =0;
 };
 
 
