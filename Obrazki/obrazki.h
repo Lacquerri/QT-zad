@@ -34,10 +34,21 @@ private slots:
     void on_pushButton_2_clicked();
     void slotTimer();
 
+    void on_pushButton_3_clicked();
+
+    void on_pushButton_clicked();
+
+    void mousePressEvent(QMouseEvent *event) override;
+
+    void mouseReleaseEvent(QMouseEvent *event) override;
+
 private:
     Ui::obrazki *ui;
     std::deque<zdjecie> listaZdjec;
     QTimer *timer1 = new QTimer(this);
-
+    int pressx_pos;
+    int pressy_pos;
+    int releasex_pos;
+    int releasey_pos;
 };
 #endif // OBRAZKI_H
