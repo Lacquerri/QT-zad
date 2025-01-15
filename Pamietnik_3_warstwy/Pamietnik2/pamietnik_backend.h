@@ -21,6 +21,8 @@ public:
     void nastepnyIndex();
     void poprzedniIndex();
     bool zapisDoPliku();
+    bool zapisKopia();
+    bool przywrocKopia();
     void usunWpis();
     void set_str(int strona);
     int get_str();

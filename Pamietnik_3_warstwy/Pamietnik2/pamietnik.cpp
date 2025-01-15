@@ -18,6 +18,11 @@ Pamietnik::Pamietnik(QWidget *parent, Program *app)
      this,SLOT(on_odswiezOkna(QString,QString,QString)));
     connect(app,SIGNAL(signalDarkmode(bool)),
             this,SLOT(on_signalDarkmode(bool)));
+    connect(app,SIGNAL(stworzonoKopie(bool)),
+            this,SLOT(on_stworzonoKopie(bool)));
+
+    connect(app,SIGNAL(przywrocKopie(bool)),
+            this,SLOT(on_przywrocKopie(bool)));
 
     app->odczytDanych();
     //if(darkmode)
@@ -27,6 +32,26 @@ Pamietnik::Pamietnik(QWidget *parent, Program *app)
 Pamietnik::~Pamietnik()
 {
     delete ui;
+}
+
+
+
+void Pamietnik::on_stworzonoKopie(bool result)
+{
+    if(result)
+     QMessageBox::information(this, "OK", "Zapisano kopię");
+    else
+     QMessageBox::warning(this, "Błąd", "Nie udało się zapisać kopii ");
+}
+
+
+
+void Pamietnik::on_przywrocKopie(bool result)
+{
+    if(result)
+     QMessageBox::information(this, "OK", "Przywrócono kopię");
+         else
+         QMessageBox::warning(this, "Błąd", "Nie udało się przywrócić kopii ");
 }
 
 
@@ -129,3 +154,15 @@ void Pamietnik::on_radioButton_toggled(bool checked)
 {
     mainApp->checkButtonDarkmode(checked);
 }
+
+void Pamietnik::on_button_PrzywrocKopie_clicked()
+{
+    mainApp->przywrocKopieZapas();
+}
+
+
+void Pamietnik::on_button_StworzKopie_clicked()
+{
+    mainApp->stworzKopie();
+}
+

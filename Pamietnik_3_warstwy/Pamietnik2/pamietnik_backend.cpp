@@ -88,6 +88,92 @@ bool Pamietnik_backend::zapisDoPliku()
 
 
 
+
+bool Pamietnik_backend::zapisKopia()
+{
+    QString fileName = "wpisy_backup.txt";
+    QFile file(fileName);
+    if (!file.open(QIODevice::WriteOnly | QIODevice::Text))
+    {
+        return false;
+    }
+    else
+    {
+        QTextStream out(&file);
+        if(listaWpisow.size()==0)
+        {
+            out<<"";
+        }
+        else
+        {
+            out<<darkmode;
+            out<<"\n";
+            out<<str;
+            out<<"\n";
+            for(int i=0;i<listaWpisow.size();i++)
+            {
+                out << listaWpisow[i].getData().toString(Qt::ISODate);
+                out << "\n";
+                out << listaWpisow[i].getTresc();
+                out << "\n";
+                out << "$$$";
+                out << "\n";
+            }
+        }
+        file.close();
+        return true;
+
+    }
+}
+
+
+
+bool Pamietnik_backend::przywrocKopia()
+{
+    QFile file("wpisy_backup.txt");
+
+    if (!file.open(QIODevice::ReadOnly | QFile::Text))
+    {
+        return false;
+    }
+
+    if(file.size()!=0)
+    {
+        listaWpisow.clear();
+        QTextStream wpisy(&file);
+        QString dataString;
+        QDateTime dataczas;
+        QString text;
+        QString line;
+        darkmode = wpisy.readLine().toInt();
+        str=wpisy.readLine().toInt();
+        while(true)
+        {
+            dataString = wpisy.readLine();
+            dataczas=QDateTime::fromString(dataString, Qt::ISODate);
+            while(true)
+            {
+                line = wpisy.readLine();
+                if (!line.contains("$$$")) {
+                    text+=line;
+                    text+="\n";
+                }
+                else {
+                    text.remove((text.size()-1), 1);
+                    break;
+                }
+            }
+            wpis w(dataczas, text);
+            listaWpisow.push_back(w);
+            text="";
+            if(wpisy.atEnd()) break;
+        }
+    }
+    return true;
+}
+
+
+
 void Pamietnik_backend::ladujplik()
 {
     QFile file("wpisy.txt");

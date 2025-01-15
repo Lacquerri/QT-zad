@@ -101,3 +101,22 @@ void Program::checkButtonDarkmode(bool checked)
     m_pamietnik.set_darkmode(checked);
     emit signalDarkmode(checked);
 }
+
+void Program::stworzKopie()
+{
+    bool result = m_pamietnik.zapisKopia();
+    emit stworzonoKopie(result);
+}
+
+
+void Program::przywrocKopieZapas()
+{
+
+    bool result = m_pamietnik.przywrocKopia();
+    emit przywrocKopie(result);
+    emit signalDarkmode(m_pamietnik.getDarkmode());
+    QString wpis1 = m_pamietnik.getWpisQString(m_pamietnik.get_str()-1);
+    QString wpis2 = m_pamietnik.getWpisQString(m_pamietnik.get_str());
+    QString wpis3 = m_pamietnik.getWpisQString(m_pamietnik.get_str()+1);
+    emit odswiezOkna(wpis1, wpis2, wpis3);
+}

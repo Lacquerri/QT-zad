@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'dialog.ui'
 **
-** Created by: Qt User Interface Compiler version 6.3.1
+** Created by: Qt User Interface Compiler version 6.6.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -33,23 +33,23 @@ public:
     void setupUi(QDialog *Dialog)
     {
         if (Dialog->objectName().isEmpty())
-            Dialog->setObjectName(QString::fromUtf8("Dialog"));
+            Dialog->setObjectName("Dialog");
         Dialog->resize(543, 523);
         verticalLayout = new QVBoxLayout(Dialog);
-        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
+        verticalLayout->setObjectName("verticalLayout");
         textEdit = new QTextEdit(Dialog);
-        textEdit->setObjectName(QString::fromUtf8("textEdit"));
+        textEdit->setObjectName("textEdit");
 
         verticalLayout->addWidget(textEdit);
 
         splitter = new QSplitter(Dialog);
-        splitter->setObjectName(QString::fromUtf8("splitter"));
+        splitter->setObjectName("splitter");
         splitter->setOrientation(Qt::Horizontal);
         dateTimeEdit = new QDateTimeEdit(splitter);
-        dateTimeEdit->setObjectName(QString::fromUtf8("dateTimeEdit"));
+        dateTimeEdit->setObjectName("dateTimeEdit");
         splitter->addWidget(dateTimeEdit);
         buttonBox = new QDialogButtonBox(splitter);
-        buttonBox->setObjectName(QString::fromUtf8("buttonBox"));
+        buttonBox->setObjectName("buttonBox");
         buttonBox->setOrientation(Qt::Horizontal);
         buttonBox->setStandardButtons(QDialogButtonBox::Cancel|QDialogButtonBox::Ok);
         splitter->addWidget(buttonBox);

@@ -1,57 +1,102 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'obrazki.h'
 **
-** Created by: The Qt Meta Object Compiler version 68 (Qt 6.3.1)
+** Created by: The Qt Meta Object Compiler version 68 (Qt 6.6.0)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
-#include <memory>
 #include "../obrazki.h"
-#include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
+
+#if __has_include(<QtCore/qtmochelpers.h>)
+#include <QtCore/qtmochelpers.h>
+#else
+QT_BEGIN_MOC_NAMESPACE
+#endif
+
+
+#include <memory>
+
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'obrazki.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 68
-#error "This file was generated using the moc from 6.3.1. It"
+#error "This file was generated using the moc from 6.6.0. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
 
-QT_BEGIN_MOC_NAMESPACE
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
+#endif
+
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
-struct qt_meta_stringdata_obrazki_t {
-    const uint offsetsAndSize[20];
-    char stringdata0[142];
+QT_WARNING_DISABLE_GCC("-Wuseless-cast")
+namespace {
+
+#ifdef QT_MOC_HAS_STRINGDATA
+struct qt_meta_stringdata_CLASSobrazkiENDCLASS_t {};
+static constexpr auto qt_meta_stringdata_CLASSobrazkiENDCLASS = QtMocHelpers::stringData(
+    "obrazki",
+    "on_pushButton_2_clicked",
+    "",
+    "slotTimer",
+    "on_pushButton_3_clicked",
+    "on_pushButton_clicked",
+    "mousePressEvent",
+    "QMouseEvent*",
+    "event",
+    "mouseReleaseEvent"
+);
+#else  // !QT_MOC_HAS_STRING_DATA
+struct qt_meta_stringdata_CLASSobrazkiENDCLASS_t {
+    uint offsetsAndSizes[20];
+    char stringdata0[8];
+    char stringdata1[24];
+    char stringdata2[1];
+    char stringdata3[10];
+    char stringdata4[24];
+    char stringdata5[22];
+    char stringdata6[16];
+    char stringdata7[13];
+    char stringdata8[6];
+    char stringdata9[18];
 };
 #define QT_MOC_LITERAL(ofs, len) \
-    uint(offsetof(qt_meta_stringdata_obrazki_t, stringdata0) + ofs), len 
-static const qt_meta_stringdata_obrazki_t qt_meta_stringdata_obrazki = {
+    uint(sizeof(qt_meta_stringdata_CLASSobrazkiENDCLASS_t::offsetsAndSizes) + ofs), len 
+Q_CONSTINIT static const qt_meta_stringdata_CLASSobrazkiENDCLASS_t qt_meta_stringdata_CLASSobrazkiENDCLASS = {
     {
-QT_MOC_LITERAL(0, 7), // "obrazki"
-QT_MOC_LITERAL(8, 23), // "on_pushButton_2_clicked"
-QT_MOC_LITERAL(32, 0), // ""
-QT_MOC_LITERAL(33, 9), // "slotTimer"
-QT_MOC_LITERAL(43, 23), // "on_pushButton_3_clicked"
-QT_MOC_LITERAL(67, 21), // "on_pushButton_clicked"
-QT_MOC_LITERAL(89, 15), // "mousePressEvent"
-QT_MOC_LITERAL(105, 12), // "QMouseEvent*"
-QT_MOC_LITERAL(118, 5), // "event"
-QT_MOC_LITERAL(124, 17) // "mouseReleaseEvent"
-
+        QT_MOC_LITERAL(0, 7),  // "obrazki"
+        QT_MOC_LITERAL(8, 23),  // "on_pushButton_2_clicked"
+        QT_MOC_LITERAL(32, 0),  // ""
+        QT_MOC_LITERAL(33, 9),  // "slotTimer"
+        QT_MOC_LITERAL(43, 23),  // "on_pushButton_3_clicked"
+        QT_MOC_LITERAL(67, 21),  // "on_pushButton_clicked"
+        QT_MOC_LITERAL(89, 15),  // "mousePressEvent"
+        QT_MOC_LITERAL(105, 12),  // "QMouseEvent*"
+        QT_MOC_LITERAL(118, 5),  // "event"
+        QT_MOC_LITERAL(124, 17)   // "mouseReleaseEvent"
     },
-    "obrazki\0on_pushButton_2_clicked\0\0"
-    "slotTimer\0on_pushButton_3_clicked\0"
-    "on_pushButton_clicked\0mousePressEvent\0"
-    "QMouseEvent*\0event\0mouseReleaseEvent"
+    "obrazki",
+    "on_pushButton_2_clicked",
+    "",
+    "slotTimer",
+    "on_pushButton_3_clicked",
+    "on_pushButton_clicked",
+    "mousePressEvent",
+    "QMouseEvent*",
+    "event",
+    "mouseReleaseEvent"
 };
 #undef QT_MOC_LITERAL
+#endif // !QT_MOC_HAS_STRING_DATA
+} // unnamed namespace
 
-static const uint qt_meta_data_obrazki[] = {
+Q_CONSTINIT static const uint qt_meta_data_CLASSobrazkiENDCLASS[] = {
 
  // content:
-      10,       // revision
+      12,       // revision
        0,       // classname
        0,    0, // classinfo
        6,   14, // methods
@@ -80,6 +125,33 @@ static const uint qt_meta_data_obrazki[] = {
        0        // eod
 };
 
+Q_CONSTINIT const QMetaObject obrazki::staticMetaObject = { {
+    QMetaObject::SuperData::link<QMainWindow::staticMetaObject>(),
+    qt_meta_stringdata_CLASSobrazkiENDCLASS.offsetsAndSizes,
+    qt_meta_data_CLASSobrazkiENDCLASS,
+    qt_static_metacall,
+    nullptr,
+    qt_incomplete_metaTypeArray<qt_meta_stringdata_CLASSobrazkiENDCLASS_t,
+        // Q_OBJECT / Q_GADGET
+        QtPrivate::TypeAndForceComplete<obrazki, std::true_type>,
+        // method 'on_pushButton_2_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'slotTimer'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_pushButton_3_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_pushButton_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'mousePressEvent'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<QMouseEvent *, std::false_type>,
+        // method 'mouseReleaseEvent'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<QMouseEvent *, std::false_type>
+    >,
+    nullptr
+} };
+
 void obrazki::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
@@ -97,22 +169,6 @@ void obrazki::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, voi
     }
 }
 
-const QMetaObject obrazki::staticMetaObject = { {
-    QMetaObject::SuperData::link<QMainWindow::staticMetaObject>(),
-    qt_meta_stringdata_obrazki.offsetsAndSize,
-    qt_meta_data_obrazki,
-    qt_static_metacall,
-    nullptr,
-qt_incomplete_metaTypeArray<qt_meta_stringdata_obrazki_t
-, QtPrivate::TypeAndForceComplete<obrazki, std::true_type>
-, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QMouseEvent *, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QMouseEvent *, std::false_type>
-
-
->,
-    nullptr
-} };
-
-
 const QMetaObject *obrazki::metaObject() const
 {
     return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
@@ -121,7 +177,7 @@ const QMetaObject *obrazki::metaObject() const
 void *obrazki::qt_metacast(const char *_clname)
 {
     if (!_clname) return nullptr;
-    if (!strcmp(_clname, qt_meta_stringdata_obrazki.stringdata0))
+    if (!strcmp(_clname, qt_meta_stringdata_CLASSobrazkiENDCLASS.stringdata0))
         return static_cast<void*>(this);
     return QMainWindow::qt_metacast(_clname);
 }
@@ -143,4 +199,3 @@ int obrazki::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     return _id;
 }
 QT_WARNING_POP
-QT_END_MOC_NAMESPACE

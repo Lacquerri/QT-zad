@@ -49,6 +49,13 @@ private slots:
 
     void on_signalDarkmode(bool checked);
 
+    void on_button_PrzywrocKopie_clicked();
+
+    void on_stworzonoKopie(bool r);
+    void on_przywrocKopie(bool r);
+
+    void on_button_StworzKopie_clicked();
+
 private:
     Ui::Pamietnik *ui;
     Program *mainApp = nullptr;

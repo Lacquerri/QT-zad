@@ -21,6 +21,9 @@ public:
     void prevPage();
     void usun();
     void checkButtonDarkmode(bool checked);
+    void stworzKopie();
+    void przywrocKopieZapas();
+
 
 private:
     Pamietnik *GUI= nullptr;
@@ -30,6 +33,8 @@ private:
 signals:
     void odswiezOkna(QString, QString, QString);
     void signalDarkmode(bool);
+    void stworzonoKopie(bool);
+    void przywrocKopie(bool);
 };
 
 #endif // PROGRAM_H
