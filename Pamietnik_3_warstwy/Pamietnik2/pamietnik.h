@@ -1,13 +1,14 @@
 #ifndef PAMIETNIK_H
 #define PAMIETNIK_H
 
+#include "wpis.h"
 #include <QWidget>
 #include <qdatetime.h>
 #include <deque>
 #include <QCloseEvent>
 #include <QFile>
 #include <QMessageBox>
-#include <QDebug>
+#include <qdebug.h>
 #include <QKeyEvent>
 
 
@@ -30,6 +31,7 @@ public:
     ~Pamietnik();
     void darkmode_ON();
     void darkmode_OFF();
+    void wykonajTesty(QDebug &);
 
 
 private slots:
@@ -47,6 +49,8 @@ private slots:
 
     void on_odswiezOkna(QString w1,QString w2,QString w3);
 
+    void on_wyswietlTypy(typ_wspomnienia w1,typ_wspomnienia w2,typ_wspomnienia w3);
+
     void on_signalDarkmode(bool checked);
 
     void on_button_PrzywrocKopie_clicked();
@@ -56,10 +60,15 @@ private slots:
 
     void on_button_StworzKopie_clicked();
 
+    void on_filtrButton_clicked();
+
+
+
 private:
     Ui::Pamietnik *ui;
     Program *mainApp = nullptr;
     void keyPressEvent(QKeyEvent *event) override;
+    bool testFiltrowania(QDebug &);
 };
 
 

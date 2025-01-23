@@ -23,6 +23,8 @@ Pamietnik::Pamietnik(QWidget *parent, Program *app)
 
     connect(app,SIGNAL(przywrocKopie(bool)),
             this,SLOT(on_przywrocKopie(bool)));
+    connect(app,SIGNAL(wyswietlTypy(typ_wspomnienia, typ_wspomnienia, typ_wspomnienia)),
+            this,SLOT(on_wyswietlTypy(typ_wspomnienia, typ_wspomnienia, typ_wspomnienia)));
 
     app->odczytDanych();
     //if(darkmode)
@@ -49,9 +51,13 @@ void Pamietnik::on_stworzonoKopie(bool result)
 void Pamietnik::on_przywrocKopie(bool result)
 {
     if(result)
-     QMessageBox::information(this, "OK", "Przywrócono kopię");
-         else
-         QMessageBox::warning(this, "Błąd", "Nie udało się przywrócić kopii ");
+        QMessageBox::information(this, "OK", "Przywrócono kopię");
+    else
+        QMessageBox::warning(this, "Błąd", "Nie udało się przywrócić kopii ");
+
+    ui->smutneBox->setChecked(1);
+    ui->NeutralneBox->setChecked(1);
+    ui->RadosneBox->setChecked(1);
 }
 
 
@@ -72,15 +78,69 @@ void Pamietnik::on_signalDarkmode(bool checked)
 
 void Pamietnik::on_odswiezOkna(QString w1,QString w2,QString w3)
 {
+    //ui->textEdit_3->setStyleSheet("border-color: red; border-style: solid; border-width: 3px;");
     ui->textEdit_3->setPlainText(w1);
     ui->textEdit_2->setPlainText(w2);
     ui->textEdit_4->setPlainText(w3);
+}
+
+void Pamietnik::on_wyswietlTypy(typ_wspomnienia w1,typ_wspomnienia w2,typ_wspomnienia w3)
+{
+
+    switch (w1) {
+    default:
+    case typ_wspomnienia::smutne:
+        ui->textEdit_3->setStyleSheet("border-color: red; border-style: solid; border-width: 3px;");
+        break;
+
+    case typ_wspomnienia::neutralne:
+        ui->textEdit_3->setStyleSheet("border-color: yellow; border-style: solid; border-width: 3px;");
+        break;
+
+    case typ_wspomnienia::radosne:
+        ui->textEdit_3->setStyleSheet("border-color: green; border-style: solid; border-width: 3px;");
+        break;
+    }
+
+
+    switch (w2) {
+    default:
+    case typ_wspomnienia::smutne:
+        ui->textEdit_2->setStyleSheet("border-color: red; border-style: solid; border-width: 3px;");
+        break;
+
+    case typ_wspomnienia::neutralne:
+        ui->textEdit_2->setStyleSheet("border-color: yellow; border-style: solid; border-width: 3px;");
+        break;
+
+    case typ_wspomnienia::radosne:
+        ui->textEdit_2->setStyleSheet("border-color: green; border-style: solid; border-width: 3px;");
+        break;
+    }
+
+    switch (w3) {
+    default:
+    case typ_wspomnienia::smutne:
+        ui->textEdit_4->setStyleSheet("border-color: red; border-style: solid; border-width: 3px;");
+        break;
+
+    case typ_wspomnienia::neutralne:
+        ui->textEdit_4->setStyleSheet("border-color: yellow; border-style: solid; border-width: 3px;");
+        break;
+
+    case typ_wspomnienia::radosne:
+        ui->textEdit_4->setStyleSheet("border-color: green; border-style: solid; border-width: 3px;");
+        break;
+    }
 }
 
 
 void Pamietnik::on_dodajButton_clicked()
 {
     mainApp->dodajWindow();
+    ui->smutneBox->setChecked(1);
+    ui->NeutralneBox->setChecked(1);
+    ui->RadosneBox->setChecked(1);
 }
 
 
@@ -166,3 +226,51 @@ void Pamietnik::on_button_StworzKopie_clicked()
     mainApp->stworzKopie();
 }
 
+
+void Pamietnik::on_filtrButton_clicked()
+{
+    bool s =ui->smutneBox->isChecked();
+    bool n =ui->NeutralneBox->isChecked();
+    bool r =ui->RadosneBox->isChecked();
+    if(s && n && r)
+    {
+        ui->usunButton->setEnabled(true);
+    }
+    else
+    {
+        ui->usunButton->setEnabled(false);
+    }
+    mainApp->filtruj(s, n, r);
+}
+
+
+
+void Pamietnik::wykonajTesty(QDebug &diag)
+{
+    if(this->testFiltrowania(diag))
+        diag << "PASSED.\n";
+    else
+        diag << "FAILED!\n";
+}
+
+
+
+bool Pamietnik::testFiltrowania(QDebug &diag)
+{
+    ui->NeutralneBox->setChecked(false);
+    mainApp->wczytajBazeTestowa();
+    this->on_filtrButton_clicked();
+    QString OczekiwaneWspomnienie1 = "Brak wspomnienia";
+    QString OczekiwaneWspomnienie2 = "Thu Jan 1 00:00:00 1920\nWspomnienie radosne 3";
+    QString OczekiwaneWspomnienie3 = "Wed Jan 1 00:00:00 1919\nWspomnienie radosne 2";
+
+    QString FaktyczneWspomnienie1 = ui->textEdit_3->toPlainText();
+    QString FaktyczneWspomnienie2 = ui->textEdit_2->toPlainText();
+    QString FaktyczneWspomnienie3 = ui->textEdit_4->toPlainText();
+
+    if(OczekiwaneWspomnienie1==FaktyczneWspomnienie1 && OczekiwaneWspomnienie2==FaktyczneWspomnienie2 && OczekiwaneWspomnienie3==FaktyczneWspomnienie3)
+    return true;
+    else
+    return false;
+
+}

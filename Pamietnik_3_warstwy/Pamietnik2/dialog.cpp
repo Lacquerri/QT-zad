@@ -39,3 +39,9 @@ QDateTime Dialog::getDate() const
     return data1;
 }
 
+
+typ_wspomnienia Dialog::getType()
+{
+    typ_wspomnienia typ = (typ_wspomnienia)ui->comboBox->currentIndex();
+    return typ;
+}

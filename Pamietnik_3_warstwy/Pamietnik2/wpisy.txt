@@ -1,11 +1,14 @@
-1
 0
-2005-01-01T00:00:00
-kopia kopia
+0
+2
+2000-01-03T00:00:00
+Radosny wpis
 $$$
+1
+2000-01-02T00:00:00
+Neutralny wpis
+$$$
+0
 2000-01-01T00:00:00
-TEST KOPIA
-$$$
-1998-01-01T00:00:00
-lalalal
+Smutny wpis
 $$$

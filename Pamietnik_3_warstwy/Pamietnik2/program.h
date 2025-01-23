@@ -23,6 +23,8 @@ public:
     void checkButtonDarkmode(bool checked);
     void stworzKopie();
     void przywrocKopieZapas();
+    void filtruj(bool s, bool n, bool r);
+    void wczytajBazeTestowa();
 
 
 private:
@@ -32,6 +34,7 @@ private:
 
 signals:
     void odswiezOkna(QString, QString, QString);
+    void wyswietlTypy(typ_wspomnienia, typ_wspomnienia, typ_wspomnienia);
     void signalDarkmode(bool);
     void stworzonoKopie(bool);
     void przywrocKopie(bool);

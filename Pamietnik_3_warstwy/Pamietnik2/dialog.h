@@ -1,6 +1,7 @@
 #ifndef DIALOG_H
 #define DIALOG_H
 
+#include "wpis.h"
 #include <QDialog>
 
 namespace Ui {
@@ -17,6 +18,7 @@ public:
     ~Dialog();
     QString getText() const;
     QDateTime getDate() const;
+    typ_wspomnienia getType();
 
 private:
     Ui::Dialog *ui;
